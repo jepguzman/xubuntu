@@ -10,14 +10,15 @@ sudo dpkg -i code.deb
 ## Instalar Node.JS (terminal)
 
 1. Instalar un Manejador de Versiones de Node
-   curl -fsSL https://fnm.vercel.app/install | bash
-	 reiniciar la terminal
 
-2. fnm use v18.19.0
-	 para instalar la versión de Node elegida
+   "curl -fsSL https://fnm.vercel.app/install | bash"
+	 >reiniciar la terminal
 
-3. node -v
-	 nos muestra la versión de Node Instalada
+3. fnm use v18.19.0
+	 >para instalar la versión de Node elegida
+
+5. node -v
+	 >nos muestra la versión de Node Instalada
 
 ## Crear cuenta en github.com
     1. Deberás crear tu cuenta en el sitio usando tu correo de gmail, con la opción :
