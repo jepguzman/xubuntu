@@ -43,14 +43,12 @@ sudo dpkg -i code.deb
        • git config --global user.name "tu_usuario_de_github"
        • git config --global user.email "tu_correo_gmail"
 
-### Comandos de GIT para subir nuestra Aplicación a GitHub
-    1. Vamos a nuestra carpeta personal en nuestra PC (www/web/nombre) desde tu Explorador de Archivos
+## Comandos de GIT para subir nuestra Aplicación a GitHub
+    1. Vamos a nuestra carpeta personal en nuestra PC desde tu Explorador de Archivos
     
     2. Abrimos la Terminal
     
-    3. Y ejecutamos Visual Studio Code (VSC) con : code .
-    
-    4. Dentro de VSC abrimos una nueva Terminal y ejecutaremos lo siguiente: [NOTA: sin lo que está entre paréntesis]
+    3. Y ejecutamos lo siguiente: [NOTA: sin lo que está entre paréntesis]
         • git init (inicia el repositorio local)
         • git remote add origin tu_código_del_repositorio (agrega el repositorio remoto en github)
         • git add . (agrega TODOS los archivos)
