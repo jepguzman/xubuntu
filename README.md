@@ -21,12 +21,12 @@ sudo dpkg -i code.deb
 	 >nos muestra la versión de Node Instalada
 
 ## Crear cuenta en github.com
-    1. Deberás crear tu cuenta en el sitio usando tu correo de gmail, con la opción :
-    2. Sign Up (Registrar)
-    3. Recuerda que deberás recordar tu USUARIO y tu Correo con los que te registras, nos servirán adelante
-    4. Crearemos un repositorio para almacenar nuestra aplicación en línea
-    5. Copiaremos la dirección HTTPS que nos genera el repositorio
-    6. Ejemplo del código (ver imagen) 
+    1. Deberás crear tu cuenta en el sitio usando tu correo de gmail, con la opción : Sign Up (Registrar)
+    2. Recuerda que deberás recordar tu USUARIO y tu Correo con los que te registras, nos servirán adelante
+    3. Crearemos un repositorio para almacenar nuestra aplicación en línea
+    4. Copiaremos la dirección HTTPS que nos genera el repositorio
+    5. Ejemplo del código (ver imagen)
+    
 
 ## Instalando GIT
     1. Vamos a nuestra carpeta personal en nuestra PC desde tu Explorador de Archivos (Thunar)
