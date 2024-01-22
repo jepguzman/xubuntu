@@ -29,7 +29,7 @@ sudo dpkg -i code.deb
     6. Ejemplo del código (ver imagen) 
 
 ## Instalando GIT
-    1. Vamos a nuestra carpeta personal en nuestra PC (www/web/nombre) desde tu Explorador de Archivos
+    1. Vamos a nuestra carpeta personal en nuestra PC desde tu Explorador de Archivos (Thunar)
     
     2. Abrimos la Terminal y instalar git en tu PC tecleamos el comando:
       • sudo apt install git
