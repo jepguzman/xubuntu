@@ -26,6 +26,7 @@ sudo dpkg -i code.deb
     3. Crearemos un repositorio para almacenar nuestra aplicación en línea
     4. Copiaremos la dirección HTTPS que nos genera el repositorio
     5. Ejemplo del código (ver imagen)
+    ![GitHub](https://cbtis169.net/cms/media/github.png)
     
 
 ## Instalando GIT
