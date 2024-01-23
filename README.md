@@ -1,5 +1,4 @@
 # xubuntu Instalación 
-Cq$$KAnlYE-53
 
 ## Instalar Actualizaciones (terminal)
 1. **sudo apt update**
