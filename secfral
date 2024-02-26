@@ -1,1 +1,654 @@
 DB>cbtisnet_secfral:U%k1Ld^a6ME6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `alumnos` (
+  `id` int NOT NULL,
+  `curp` varchar(25) NOT NULL,
+  `generacion` varchar(25) NOT NULL,
+  `periodoescolar` varchar(25) NOT NULL,
+  `nombres` varchar(50) NOT NULL,
+  `paterno` varchar(50) NOT NULL,
+  `materno` varchar(50) NOT NULL,
+  `fnacimiento` date NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `turno` varchar(20) NOT NULL,
+  `grupo` varchar(1) NOT NULL,
+  `beca` varchar(50) NOT NULL,
+  `calle` varchar(100) NOT NULL,
+  `numero` int NOT NULL,
+  `colonia` varchar(100) NOT NULL,
+  `localidad` varchar(100) NOT NULL,
+  `municipio` varchar(100) NOT NULL,
+  `entidad` varchar(50) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `tutor` varchar(100) NOT NULL,
+  `observacion` varchar(255) ,
+  `idescuela` int NOT NULL DEFAULT '1',
+  `activo` tinyint(1) NOT NULL DEFAULT '1',
+  `egresado` tinyint(1) NOT NULL DEFAULT '0',
+  `fcreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fupdated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `userid` int NOT NULL DEFAULT '1'
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id`, `curp`, `generacion`, `periodoescolar`, `nombres`, `paterno`, `materno`, `fnacimiento`, `sexo`, `turno`, `grupo`, `beca`, `calle`, `numero`, `colonia`, `localidad`, `municipio`, `entidad`, `telefono`, `tutor`, `observacion`, `idescuela`, `activo`, `egresado`, `fcreated`, `fupdated`, `userid`) VALUES
+(1, 'PEGJ850315HJCRRN07', '2023-2025', '2023-2024', 'JUAN CARLOS', 'PEREZ', 'GARCIA', '1985-03-15', 'H', 'MATUTINO', 'A', '', 'PRIMERA SUR ORIENTE', 123, 'SAN MARTIN', 'CINTALAPA', 'CINTALAPA', 'CHIAPAS', '968-000-0000', 'JUAN CARLOS PEREZ SANCHEZ', '', 1, 1, 0, '2024-02-13 11:27:30', '2024-02-13 11:27:30', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuadros`
+--
+
+CREATE TABLE `cuadros` (
+  `id` int NOT NULL,
+  `logo` varchar(100) NOT NULL,
+  `subsecretaria` varchar(75) NOT NULL,
+  `direccion` varchar(75) NOT NULL,
+  `departamento` varchar(75) NOT NULL,
+  `escuela` varchar(75) NOT NULL,
+  `turno` varchar(25) NOT NULL,
+  `asignatura` varchar(50) NOT NULL,
+  `profesor` varchar(75) NOT NULL,
+  `grado` varchar(25) NOT NULL,
+  `grupo` varchar(10) NOT NULL
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `cuadros`
+--
+
+INSERT INTO `cuadros` (`id`, `logo`, `subsecretaria`, `direccion`, `departamento`, `escuela`, `turno`, `asignatura`, `profesor`, `grado`, `grupo`) VALUES
+(1, 'logo.png', 'SUBSECRETARÍA DE EDUCACIÓN FEDERALIZADA', 'DIRECCIÓN DE EDUCACIÓN SECUNDARIA Y SUPERIOR', 'DEPARTAMENTO DE EDUCACIÓN SECUNDARIA GENERAL', 'ESC. SEC. “RODULFO FIGUEROA ESQUINCA”', 'MATUTINO', 'ESPAÑOL', '.....', 'PRIMERO', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `escuela`
+--
+
+CREATE TABLE `escuela` (
+  `id` int NOT NULL,
+  `cct` varchar(50) NOT NULL,
+  `clave` varchar(50) NOT NULL,
+  `colonia` varchar(100) NOT NULL,
+  `municipio` varchar(100) NOT NULL,
+  `entidad` varchar(50) NOT NULL
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `escuela`
+--
+
+INSERT INTO `escuela` (`id`, `cct`, `clave`, `colonia`, `municipio`, `entidad`) VALUES
+(1, 'RODULFO FIGUEROA ESQUINCA', '07DES0005E', 'TEPEYAC', 'CINTALAPA', 'CHIAPAS');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estados`
+--
+
+CREATE TABLE `estados` (
+  `id` int NOT NULL,
+  `entidad` varchar(30) NOT NULL
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `estados`
+--
+
+INSERT INTO `estados` (`id`, `entidad`) VALUES
+(1, 'CDMX'),
+(2, 'AGUASCALIENTES'),
+(3, 'BAJA CALIFORNIA NORTE'),
+(4, 'BAJA CALIFORNIA SUR'),
+(5, 'CAMPECHE'),
+(6, 'CHIAPAS'),
+(7, 'CHIHUAHUA'),
+(8, 'COAHUILA'),
+(9, 'COLIMA'),
+(10, 'DURANGO'),
+(11, 'GUANAJUATO'),
+(12, 'GUERRERO'),
+(13, 'HIDALGO'),
+(14, 'JALISCO'),
+(15, 'EDO. DE MEXICO'),
+(16, 'MICHOACAN'),
+(17, 'MORELOS'),
+(18, 'NAYARIT'),
+(19, 'NUEVO LEON'),
+(20, 'OAXACA'),
+(21, 'PUEBLA'),
+(22, 'QUERETARO'),
+(23, 'QUINTANA ROO'),
+(24, 'SAN LUIS POTOSI'),
+(25, 'SINALOA'),
+(26, 'SONORA'),
+(27, 'TABASCO'),
+(28, 'TAMAULIPAS'),
+(29, 'TLAXCALA'),
+(30, 'VERACRUZ'),
+(31, 'YUCATAN'),
+(32, 'ZACATECAS');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `generacion`
+--
+
+CREATE TABLE `generacion` (
+  `id` int NOT NULL,
+  `generacion` varchar(50) NOT NULL
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `generacion`
+--
+
+INSERT INTO `generacion` (`id`, `generacion`) VALUES
+(1, '2022-2024'),
+(2, '2023-2025');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `kardex`
+--
+
+CREATE TABLE `kardex` (
+  `id` int NOT NULL,
+  `logo` varchar(100),
+  `nacional` varchar(50),
+  `media` varchar(50) ,
+  `chiapas` varchar(75) ,
+  `secundaria` varchar(50)
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `kardex`
+--
+
+INSERT INTO `kardex` (`id`, `logo`, `nacional`, `media`, `chiapas`, `secundaria`) VALUES
+(1, 'http://localhost:5173/src/assets/logoSEP.png', 'SISTEMA EDUCATIVO NACIONAL', 'EDUCACIÓN SECUNDARIA', 'SECRETARÍA DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE CHIAPAS', 'SECUNDARIA FEDERAL RODULFO FIGUEROA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `primero`
+--
+
+CREATE TABLE `primero` (
+  `id` int NOT NULL,
+  `curp` varchar(25) NOT NULL,
+  `espanol1de3` int DEFAULT NULL,
+  `espanol2de3` int DEFAULT NULL,
+  `espanol3de3` int DEFAULT NULL,
+  `espanolfinal` int DEFAULT NULL,
+  `espinasist1de3` int DEFAULT NULL,
+  `espinasist2de3` int DEFAULT NULL,
+  `espinasist3de3` int DEFAULT NULL,
+  `espinasisttotal` int DEFAULT NULL,
+  `esptipoexareg` varchar(50) DEFAULT NULL,
+  `espfexareg` date DEFAULT NULL,
+  `espcalexareg` int DEFAULT NULL,
+  `ingles1de3` int DEFAULT NULL,
+  `ingles2de3` int DEFAULT NULL,
+  `ingles3de3` int DEFAULT NULL,
+  `inglesfinal` int DEFAULT NULL,
+  `inginasist1de3` int DEFAULT NULL,
+  `inginasist2de3` int DEFAULT NULL,
+  `inginasist3de3` int DEFAULT NULL,
+  `inginasisttotal` int DEFAULT NULL,
+  `ingtipoexareg` varchar(50) DEFAULT NULL,
+  `ingfexareg` date DEFAULT NULL,
+  `ingcalexareg` int DEFAULT NULL,
+  `artes1de3` int DEFAULT NULL,
+  `artes2de3` int DEFAULT NULL,
+  `artes3de3` int DEFAULT NULL,
+  `artesfinal` int DEFAULT NULL,
+  `artinasist1de3` int DEFAULT NULL,
+  `artinasist2de3` int DEFAULT NULL,
+  `artinasist3de3` int DEFAULT NULL,
+  `artinasisttotal` int DEFAULT NULL,
+  `arttipoexareg` varchar(50) DEFAULT NULL,
+  `artfexareg` date DEFAULT NULL,
+  `artcalexareg` int DEFAULT NULL,
+  `matematicas1de3` int DEFAULT NULL,
+  `matematicas2de3` int DEFAULT NULL,
+  `matematicas3de3` int DEFAULT NULL,
+  `matematicasfinal` int DEFAULT NULL,
+  `matinasist1de3` int DEFAULT NULL,
+  `matinasist2de3` int DEFAULT NULL,
+  `matinasist3de3` int DEFAULT NULL,
+  `matinasisttotal` int DEFAULT NULL,
+  `mattipoexareg` varchar(50) DEFAULT NULL,
+  `matfexareg` date DEFAULT NULL,
+  `matcalexareg` int DEFAULT NULL,
+  `fisica1de3` int DEFAULT NULL,
+  `fisica2de3` int DEFAULT NULL,
+  `fisica3de3` int DEFAULT NULL,
+  `fisicafinal` int DEFAULT NULL,
+  `fisinasist1de3` int DEFAULT NULL,
+  `fisinasist2de3` int DEFAULT NULL,
+  `fisinasist3de3` int DEFAULT NULL,
+  `fisinasisttotal` int DEFAULT NULL,
+  `fistipoexareg` varchar(50) DEFAULT NULL,
+  `fisfexareg` date DEFAULT NULL,
+  `fiscalexareg` int DEFAULT NULL,
+  `historia1de3` int DEFAULT NULL,
+  `historia2de3` int DEFAULT NULL,
+  `historia3de3` int DEFAULT NULL,
+  `historiafinal` int DEFAULT NULL,
+  `hisinasist1de3` int DEFAULT NULL,
+  `hisinasist2de3` int DEFAULT NULL,
+  `hisinasist3de3` int DEFAULT NULL,
+  `hisinasisttotal` int DEFAULT NULL,
+  `histipoexareg` varchar(50) DEFAULT NULL,
+  `hisfexareg` date DEFAULT NULL,
+  `hiscalexareg` int DEFAULT NULL,
+  `etica1de3` int DEFAULT NULL,
+  `etica2de3` int DEFAULT NULL,
+  `etica3de3` int DEFAULT NULL,
+  `eticafinal` int DEFAULT NULL,
+  `etiinasist1de3` int DEFAULT NULL,
+  `etiinasist2de3` int DEFAULT NULL,
+  `etiinasist3de3` int DEFAULT NULL,
+  `etiinasisttotal` int DEFAULT NULL,
+  `etitipoexareg` varchar(50) DEFAULT NULL,
+  `etifexareg` date DEFAULT NULL,
+  `eticalexareg` int DEFAULT NULL,
+  `tecnologia1de3` int DEFAULT NULL,
+  `tecnologia2de3` int DEFAULT NULL,
+  `tecnologia3de3` int DEFAULT NULL,
+  `tecnologiafinal` int DEFAULT NULL,
+  `tecinasist1de3` int DEFAULT NULL,
+  `tecinasist2de3` int DEFAULT NULL,
+  `tecinasist3de3` int DEFAULT NULL,
+  `tecinasisttotal` int DEFAULT NULL,
+  `tectipoexareg` varchar(50) DEFAULT NULL,
+  `tecfexareg` date DEFAULT NULL,
+  `teccalexareg` int DEFAULT NULL,
+  `edufisica1de3` int DEFAULT NULL,
+  `edufisica2de3` int DEFAULT NULL,
+  `edufisica3de3` int DEFAULT NULL,
+  `edufisicafinal` int DEFAULT NULL,
+  `edfinasist1de3` int DEFAULT NULL,
+  `edfinasist2de3` int DEFAULT NULL,
+  `edfinasist3de3` int DEFAULT NULL,
+  `edfinasisttotal` int DEFAULT NULL,
+  `edftipoexareg` varchar(50) DEFAULT NULL,
+  `edffexareg` date DEFAULT NULL,
+  `edfcalexareg` int DEFAULT NULL,
+  `lenextra` varchar(50) DEFAULT NULL,
+  `clavelenextra` varchar(50) DEFAULT NULL,
+  `edutec` varchar(50) DEFAULT NULL,
+  `claveedutec` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `primero`
+--
+
+INSERT INTO `primero` (`id`, `curp`, `espanol1de3`, `espanol2de3`, `espanol3de3`, `espanolfinal`, `espinasist1de3`, `espinasist2de3`, `espinasist3de3`, `espinasisttotal`, `esptipoexareg`, `espfexareg`, `espcalexareg`, `ingles1de3`, `ingles2de3`, `ingles3de3`, `inglesfinal`, `inginasist1de3`, `inginasist2de3`, `inginasist3de3`, `inginasisttotal`, `ingtipoexareg`, `ingfexareg`, `ingcalexareg`, `artes1de3`, `artes2de3`, `artes3de3`, `artesfinal`, `artinasist1de3`, `artinasist2de3`, `artinasist3de3`, `artinasisttotal`, `arttipoexareg`, `artfexareg`, `artcalexareg`, `matematicas1de3`, `matematicas2de3`, `matematicas3de3`, `matematicasfinal`, `matinasist1de3`, `matinasist2de3`, `matinasist3de3`, `matinasisttotal`, `mattipoexareg`, `matfexareg`, `matcalexareg`, `fisica1de3`, `fisica2de3`, `fisica3de3`, `fisicafinal`, `fisinasist1de3`, `fisinasist2de3`, `fisinasist3de3`, `fisinasisttotal`, `fistipoexareg`, `fisfexareg`, `fiscalexareg`, `historia1de3`, `historia2de3`, `historia3de3`, `historiafinal`, `hisinasist1de3`, `hisinasist2de3`, `hisinasist3de3`, `hisinasisttotal`, `histipoexareg`, `hisfexareg`, `hiscalexareg`, `etica1de3`, `etica2de3`, `etica3de3`, `eticafinal`, `etiinasist1de3`, `etiinasist2de3`, `etiinasist3de3`, `etiinasisttotal`, `etitipoexareg`, `etifexareg`, `eticalexareg`, `tecnologia1de3`, `tecnologia2de3`, `tecnologia3de3`, `tecnologiafinal`, `tecinasist1de3`, `tecinasist2de3`, `tecinasist3de3`, `tecinasisttotal`, `tectipoexareg`, `tecfexareg`, `teccalexareg`, `edufisica1de3`, `edufisica2de3`, `edufisica3de3`, `edufisicafinal`, `edfinasist1de3`, `edfinasist2de3`, `edfinasist3de3`, `edfinasisttotal`, `edftipoexareg`, `edffexareg`, `edfcalexareg`, `lenextra`, `clavelenextra`, `edutec`, `claveedutec`) VALUES
+(1, 'PEGJ850315HJCRRN07', 9, 8, 9, 9, 0, 0, 0, 0, NULL, NULL, NULL, 9, 10, 10, 10, 0, 0, 0, 0, NULL, NULL, NULL, 8, 8, 8, 8, 0, 0, 0, 0, NULL, NULL, NULL, 9, 8, 9, 9, 0, 0, 0, 0, NULL, NULL, NULL, 7, 7, 7, 7, 0, 0, 0, 0, NULL, NULL, NULL, 9, 9, 9, 9, 0, 0, 0, 0, NULL, NULL, NULL, 6, 6, 6, 6, 0, 0, 0, 0, NULL, NULL, NULL, 8, 8, 8, 8, 0, 0, 0, 0, NULL, NULL, NULL, 9, 9, 9, 9, 0, 0, 0, 0, NULL, NULL, NULL, 'INGLES', '01LING', 'ELECTRICIDAD', '02ELECT');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `segundo`
+--
+
+CREATE TABLE `segundo` (
+  `id` int NOT NULL,
+  `curp` varchar(25) NOT NULL,
+  `folio` varchar(25) NOT NULL,
+  `espanol1de3` int DEFAULT NULL,
+  `espanol2de3` int DEFAULT NULL,
+  `espanol3de3` int DEFAULT NULL,
+  `espanolfinal` int DEFAULT NULL,
+  `espinasist1de3` int DEFAULT NULL,
+  `espinasist2de3` int DEFAULT NULL,
+  `espinasist3de3` int DEFAULT NULL,
+  `espinasisttotal` int DEFAULT NULL,
+  `esptipoexareg` varchar(50) DEFAULT NULL,
+  `espfexareg` date DEFAULT NULL,
+  `espcalexareg` int DEFAULT NULL,
+  `ingles1de3` int DEFAULT NULL,
+  `ingles2de3` int DEFAULT NULL,
+  `ingles3de3` int DEFAULT NULL,
+  `inglesfinal` int DEFAULT NULL,
+  `inginasist1de3` int DEFAULT NULL,
+  `inginasist2de3` int DEFAULT NULL,
+  `inginasist3de3` int DEFAULT NULL,
+  `inginasisttotal` int DEFAULT NULL,
+  `ingtipoexareg` varchar(50) DEFAULT NULL,
+  `ingfexareg` date DEFAULT NULL,
+  `ingcalexareg` int DEFAULT NULL,
+  `artes1de3` int DEFAULT NULL,
+  `artes2de3` int DEFAULT NULL,
+  `artes3de3` int DEFAULT NULL,
+  `artesfinal` int DEFAULT NULL,
+  `artinasist1de3` int DEFAULT NULL,
+  `artinasist2de3` int DEFAULT NULL,
+  `artinasist3de3` int DEFAULT NULL,
+  `artinasisttotal` int DEFAULT NULL,
+  `arttipoexareg` varchar(50) DEFAULT NULL,
+  `artfexareg` date DEFAULT NULL,
+  `artcalexareg` int DEFAULT NULL,
+  `matematicas1de3` int DEFAULT NULL,
+  `matematicas2de3` int DEFAULT NULL,
+  `matematicas3de3` int DEFAULT NULL,
+  `matematicasfinal` int DEFAULT NULL,
+  `matinasist1de3` int DEFAULT NULL,
+  `matinasist2de3` int DEFAULT NULL,
+  `matinasist3de3` int DEFAULT NULL,
+  `matinasisttotal` int DEFAULT NULL,
+  `mattipoexareg` varchar(50) DEFAULT NULL,
+  `matfexareg` date DEFAULT NULL,
+  `matcalexareg` int DEFAULT NULL,
+  `fisica1de3` int DEFAULT NULL,
+  `fisica2de3` int DEFAULT NULL,
+  `fisica3de3` int DEFAULT NULL,
+  `fisicafinal` int DEFAULT NULL,
+  `fisinasist1de3` int DEFAULT NULL,
+  `fisinasist2de3` int DEFAULT NULL,
+  `fisinasist3de3` int DEFAULT NULL,
+  `fisinasisttotal` int DEFAULT NULL,
+  `fistipoexareg` varchar(50) DEFAULT NULL,
+  `fisfexareg` date DEFAULT NULL,
+  `fiscalexareg` int DEFAULT NULL,
+  `historia1de3` int DEFAULT NULL,
+  `historia2de3` int DEFAULT NULL,
+  `historia3de3` int DEFAULT NULL,
+  `historiafinal` int DEFAULT NULL,
+  `hisinasist1de3` int DEFAULT NULL,
+  `hisinasist2de3` int DEFAULT NULL,
+  `hisinasist3de3` int DEFAULT NULL,
+  `hisinasisttotal` int DEFAULT NULL,
+  `histipoexareg` varchar(50) DEFAULT NULL,
+  `hisfexareg` date DEFAULT NULL,
+  `hiscalexareg` int DEFAULT NULL,
+  `etica1de3` int DEFAULT NULL,
+  `etica2de3` int DEFAULT NULL,
+  `etica3de3` int DEFAULT NULL,
+  `eticafinal` int DEFAULT NULL,
+  `etiinasist1de3` int DEFAULT NULL,
+  `etiinasist2de3` int DEFAULT NULL,
+  `etiinasist3de3` int DEFAULT NULL,
+  `etiinasisttotal` int DEFAULT NULL,
+  `etitipoexareg` varchar(50) DEFAULT NULL,
+  `etifexareg` date DEFAULT NULL,
+  `eticalexareg` int DEFAULT NULL,
+  `tecnologia1de3` int DEFAULT NULL,
+  `tecnologia2de3` int DEFAULT NULL,
+  `tecnologia3de3` int DEFAULT NULL,
+  `tecnologiafinal` int DEFAULT NULL,
+  `tecinasist1de3` int DEFAULT NULL,
+  `tecinasist2de3` int DEFAULT NULL,
+  `tecinasist3de3` int DEFAULT NULL,
+  `tecinasisttotal` int DEFAULT NULL,
+  `tectipoexareg` varchar(50) DEFAULT NULL,
+  `tecfexareg` date DEFAULT NULL,
+  `teccalexareg` int DEFAULT NULL,
+  `edufisica1de3` int DEFAULT NULL,
+  `edufisica2de3` int DEFAULT NULL,
+  `edufisica3de3` int DEFAULT NULL,
+  `edufisicafinal` int DEFAULT NULL,
+  `edfinasist1de3` int DEFAULT NULL,
+  `edfinasist2de3` int DEFAULT NULL,
+  `edfinasist3de3` int DEFAULT NULL,
+  `edfinasisttotal` int DEFAULT NULL,
+  `edftipoexareg` varchar(50) DEFAULT NULL,
+  `edffexareg` date DEFAULT NULL,
+  `edfcalexareg` int DEFAULT NULL,
+  `lenextra` varchar(50) DEFAULT NULL,
+  `clavelenextra` varchar(50) DEFAULT NULL,
+  `edutec` varchar(50) DEFAULT NULL,
+  `claveedutec` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tercero`
+--
+
+CREATE TABLE `tercero` (
+  `id` int NOT NULL,
+  `curp` varchar(25) NOT NULL,
+  `folio` varchar(25) NOT NULL,
+  `espanol1de3` int DEFAULT NULL,
+  `espanol2de3` int DEFAULT NULL,
+  `espanol3de3` int DEFAULT NULL,
+  `espanolfinal` int DEFAULT NULL,
+  `espinasist1de3` int DEFAULT NULL,
+  `espinasist2de3` int DEFAULT NULL,
+  `espinasist3de3` int DEFAULT NULL,
+  `espinasisttotal` int DEFAULT NULL,
+  `esptipoexareg` varchar(50) DEFAULT NULL,
+  `espfexareg` date DEFAULT NULL,
+  `espcalexareg` int DEFAULT NULL,
+  `ingles1de3` int DEFAULT NULL,
+  `ingles2de3` int DEFAULT NULL,
+  `ingles3de3` int DEFAULT NULL,
+  `inglesfinal` int DEFAULT NULL,
+  `inginasist1de3` int DEFAULT NULL,
+  `inginasist2de3` int DEFAULT NULL,
+  `inginasist3de3` int DEFAULT NULL,
+  `inginasisttotal` int DEFAULT NULL,
+  `ingtipoexareg` varchar(50) DEFAULT NULL,
+  `ingfexareg` date DEFAULT NULL,
+  `ingcalexareg` int DEFAULT NULL,
+  `artes1de3` int DEFAULT NULL,
+  `artes2de3` int DEFAULT NULL,
+  `artes3de3` int DEFAULT NULL,
+  `artesfinal` int DEFAULT NULL,
+  `artinasist1de3` int DEFAULT NULL,
+  `artinasist2de3` int DEFAULT NULL,
+  `artinasist3de3` int DEFAULT NULL,
+  `artinasisttotal` int DEFAULT NULL,
+  `arttipoexareg` varchar(50) DEFAULT NULL,
+  `artfexareg` date DEFAULT NULL,
+  `artcalexareg` int DEFAULT NULL,
+  `matematicas1de3` int DEFAULT NULL,
+  `matematicas2de3` int DEFAULT NULL,
+  `matematicas3de3` int DEFAULT NULL,
+  `matematicasfinal` int DEFAULT NULL,
+  `matinasist1de3` int DEFAULT NULL,
+  `matinasist2de3` int DEFAULT NULL,
+  `matinasist3de3` int DEFAULT NULL,
+  `matinasisttotal` int DEFAULT NULL,
+  `mattipoexareg` varchar(50) DEFAULT NULL,
+  `matfexareg` date DEFAULT NULL,
+  `matcalexareg` int DEFAULT NULL,
+  `fisica1de3` int DEFAULT NULL,
+  `fisica2de3` int DEFAULT NULL,
+  `fisica3de3` int DEFAULT NULL,
+  `fisicafinal` int DEFAULT NULL,
+  `fisinasist1de3` int DEFAULT NULL,
+  `fisinasist2de3` int DEFAULT NULL,
+  `fisinasist3de3` int DEFAULT NULL,
+  `fisinasisttotal` int DEFAULT NULL,
+  `fistipoexareg` varchar(50) DEFAULT NULL,
+  `fisfexareg` date DEFAULT NULL,
+  `fiscalexareg` int DEFAULT NULL,
+  `historia1de3` int DEFAULT NULL,
+  `historia2de3` int DEFAULT NULL,
+  `historia3de3` int DEFAULT NULL,
+  `historiafinal` int DEFAULT NULL,
+  `hisinasist1de3` int DEFAULT NULL,
+  `hisinasist2de3` int DEFAULT NULL,
+  `hisinasist3de3` int DEFAULT NULL,
+  `hisinasisttotal` int DEFAULT NULL,
+  `histipoexareg` varchar(50) DEFAULT NULL,
+  `hisfexareg` date DEFAULT NULL,
+  `hiscalexareg` int DEFAULT NULL,
+  `etica1de3` int DEFAULT NULL,
+  `etica2de3` int DEFAULT NULL,
+  `etica3de3` int DEFAULT NULL,
+  `eticafinal` int DEFAULT NULL,
+  `etiinasist1de3` int DEFAULT NULL,
+  `etiinasist2de3` int DEFAULT NULL,
+  `etiinasist3de3` int DEFAULT NULL,
+  `etiinasisttotal` int DEFAULT NULL,
+  `etitipoexareg` varchar(50) DEFAULT NULL,
+  `etifexareg` date DEFAULT NULL,
+  `eticalexareg` int DEFAULT NULL,
+  `tecnologia1de3` int DEFAULT NULL,
+  `tecnologia2de3` int DEFAULT NULL,
+  `tecnologia3de3` int DEFAULT NULL,
+  `tecnologiafinal` int DEFAULT NULL,
+  `tecinasist1de3` int DEFAULT NULL,
+  `tecinasist2de3` int DEFAULT NULL,
+  `tecinasist3de3` int DEFAULT NULL,
+  `tecinasisttotal` int DEFAULT NULL,
+  `tectipoexareg` varchar(50) DEFAULT NULL,
+  `tecfexareg` date DEFAULT NULL,
+  `teccalexareg` int DEFAULT NULL,
+  `edufisica1de3` int DEFAULT NULL,
+  `edufisica2de3` int DEFAULT NULL,
+  `edufisica3de3` int DEFAULT NULL,
+  `edufisicafinal` int DEFAULT NULL,
+  `edfinasist1de3` int DEFAULT NULL,
+  `edfinasist2de3` int DEFAULT NULL,
+  `edfinasist3de3` int DEFAULT NULL,
+  `edfinasisttotal` int DEFAULT NULL,
+  `edftipoexareg` varchar(50) DEFAULT NULL,
+  `edffexareg` date DEFAULT NULL,
+  `edfcalexareg` int DEFAULT NULL,
+  `lenextra` varchar(50) DEFAULT NULL,
+  `clavelenextra` varchar(50) DEFAULT NULL,
+  `edutec` varchar(50) DEFAULT NULL,
+  `claveedutec` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL,
+  `usuario` varchar(25) NOT NULL,
+  `nombres` varchar(50) NOT NULL,
+  `paterno` varchar(50) NOT NULL,
+  `materno` varchar(50) NOT NULL,
+  `clave` varchar(50) NOT NULL,
+  `puesto` varchar(50) NOT NULL,
+  `activo` tinyint(1) NOT NULL,
+  `fcreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fupdated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `nombres`, `paterno`, `materno`, `clave`, `puesto`, `activo`, `fcreated`, `fupdated`) VALUES
+(0, 'yoyita', 'GLORIA DEL CARMEN', 'PEREZ', 'GUZMAN', 'yoyi', 'SECRETARIA DIRECCION ', 1, '2024-02-13 11:37:55', '2024-02-13 11:37:55');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `curp` (`curp`);
+
+--
+-- Indices de la tabla `cuadros`
+--
+ALTER TABLE `cuadros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `escuela`
+--
+ALTER TABLE `escuela`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `generacion`
+--
+ALTER TABLE `generacion`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `generacion` (`generacion`);
+
+--
+-- Indices de la tabla `kardex`
+--
+ALTER TABLE `kardex`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `primero`
+--
+ALTER TABLE `primero`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `cuadros`
+--
+ALTER TABLE `cuadros`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `escuela`
+--
+ALTER TABLE `escuela`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `estados`
+--
+ALTER TABLE `estados`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `generacion`
+--
+ALTER TABLE `generacion`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `kardex`
+--
+ALTER TABLE `kardex`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `primero`
+--
+ALTER TABLE `primero`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
